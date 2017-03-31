@@ -160,3 +160,6 @@ ENV/
 
 ## pyCharm ##
 .idea/
+
+## Custom ##
+test*
