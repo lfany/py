@@ -16,6 +16,7 @@ a+	打开一个文件用于读写。如果该文件已存在，文件指针将�
 ab+	以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。如果该文件不存在，创建新文件用于读写。
 
 """
+import os
 
 """
 file object = open(file_name [, access_mode][, buffering])
@@ -31,6 +32,35 @@ while len(a) != 1:
     a = input("请输入\n")
     file.write(a + '\n')
 
-print(file)
+# print(file)
+
+# read file
+
+## go to head
+if file.tell() != 0:
+    file.seek(0, 0)
+
+readStr = file.read()
+print(readStr)
 
 file.close()
+
+del file
+
+## file
+
+if os.path.isfile("test.file"):
+    pass
+    os.remove("test.file")
+
+os.rename("test.txt", "test.file")
+
+file = open("test.file", "r+")
+
+print(file.read())
+
+file.close()
+del file
+
+os.remove("test.file")
+
