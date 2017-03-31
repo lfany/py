@@ -6,6 +6,8 @@ from hello.pyclass.emplyee import Emplyee
 
 ee = Emplyee("name", "sal")
 ee.display()
+print(ee._hh)
+ee.__func()
 
 
 e = emplyee.Emplyee("n", 's')

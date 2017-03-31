@@ -3,11 +3,13 @@
 class Emplyee:
     'hello'
     empCount = 0
+    __heh = 0
 
     def __init__(self, name, salary):
         self.name = name
         self.salary = salary
         Emplyee.empCount += 1
+        self.__hh = 0
 
     def displayCount(self):
         print('Total employee %d' % Emplyee.empCount)
@@ -20,6 +22,9 @@ class Emplyee:
         print('Name: {}; Salary: {}'.format(self.name, self.salary))
         print('Name: {0}; Salary: {1}'.format(self.name, self.salary))
         print('Name: {name}; Salary: {salary}'.format(name=self.name, salary=self.salary))
+
+    def __func(self):
+        pass
 
 print("Employee.__doc__:", Emplyee.__doc__)
 print("Employee.__name__:", Emplyee.__name__)
