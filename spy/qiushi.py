@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import urllib.request, urllib.error
 import bs4, re
 import json
