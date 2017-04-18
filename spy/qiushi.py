@@ -125,9 +125,10 @@ class mydaemon(daemon):
 
 
 class Data:
-    def __init__(self, lists) -> None:
+    def __init__(self, lists, page) -> None:
         super().__init__()
         self.lists = lists
+        self.page = page
         self.errorcode = 0
         self.msg = ''
 
@@ -208,7 +209,7 @@ def get_page(page):
                 author
             )
             lists.append(article)
-        data = json.dumps(Data(lists), default=lambda o: o.__dict__, sort_keys=True, indent=4,
+        data = json.dumps(Data(lists, page), default=lambda o: o.__dict__, sort_keys=True, indent=4,
                           ensure_ascii=False)
         # print(data)
         return data
