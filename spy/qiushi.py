@@ -134,9 +134,10 @@ class Data:
 
 
 class Article:
-    def __init__(self, article, vote, comment, author):
+    def __init__(self, article, url, vote, comment, author):
         super().__init__()
         self.article = article
+        slef.url = url
         self.vote = vote
         self.comment = comment
         self.author = author
@@ -204,6 +205,7 @@ def get_page(page):
 
             article = Article(
                 item.span.text,
+                item.findAll('a', class_='contentHerf')[0].attrs['href'],
                 item.findAll('span', class_='stats-vote')[0].i.text,
                 item.findAll('span', class_='stats-comments')[0].i.text,
                 author
