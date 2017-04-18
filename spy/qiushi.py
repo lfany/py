@@ -91,7 +91,7 @@ def get_page(page):
             lists.append(article)
         data = json.dumps(Data(lists), default=lambda o: o.__dict__, sort_keys=True, indent=4,
                           ensure_ascii=False)
-        print(data)
+        # print(data)
         return data
         # dumps = json.dumps(article, default=lambda o: o.__dict__, sort_keys=True, indent=4)
         # print(dumps)
