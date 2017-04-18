@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+##  pip install beautifulsoup4 bottle
 import urllib.request, urllib.error
 import bs4, re
 import json
