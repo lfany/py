@@ -111,22 +111,17 @@ class daemon():
     def run(self):
         """ run your fun"""
 
-        @bottle.route('/qiushi/<page>')
-        def qiushi(page):
-            return get_page(page)
-
-        bottle.run(host='localhost', port=3333)
-
 
 ###以上代码可以做成一个库文件，也可以放在一个文件中###
 ###以下代码可以引用上面的库文件#########
 class mydaemon(daemon):
     # 重新定义run函数，以运行你的功能
     def run(self):
-        while True:
-            fp = open('/tmp/result', 'a+')
-            fp.write('Hello Guol\n')
-            time.sleep(2)
+        @bottle.route('/qiushi/<page>')
+        def qiushi(page):
+            return get_page(page)
+
+        bottle.run(host='localhost', port=3333)
 
 
 class Data:
