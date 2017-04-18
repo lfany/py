@@ -137,7 +137,7 @@ class Article:
     def __init__(self, article, url, vote, comment, author):
         super().__init__()
         self.article = article
-        slef.url = url
+        self.url = base_url + url
         self.vote = vote
         self.comment = comment
         self.author = author
@@ -251,3 +251,10 @@ if __name__ == '__main__':
     else:
         print("usage:%s start/stop/restart" % sys.argv[0])
         sys.exit(2)
+
+    # @bottle.route('/qiushi/<page>')
+    # def qiushi(page):
+    #     return get_page(page)
+    #
+    #
+    # bottle.run(host='localhost', port=3333)
