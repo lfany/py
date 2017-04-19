@@ -163,3 +163,4 @@ ENV/
 
 ## Custom ##
 test*
+*.txt
