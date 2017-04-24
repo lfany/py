@@ -186,16 +186,20 @@ def get_page(page):
                 # print(base_url + i.a.attrs['href'])
                 # print(i.div.text)
                 # print(i.div.attrs['class'])
-                if 'womenIcon' in i.div.attrs['class']:  # woman
-                    sex = 'woman'
+                if i.find('span'):
+                    authorSex = None
+                    authorAge = 0
+                    authorPage = None
                 else:
-                    sex = 'man'
-                    # print(i.a)
+                    authorAge = i.div.text
+                    authorPage = base_url + i.a.attrs['href']
+                    if 'womenIcon' in i.div.attrs['class']:  # woman
+                        authorSex = 'woman'
+                    else:
+                        authorSex = 'man'
+                        # print(i.a)
                 authorName = i.img.attrs['alt']
-                authorAge = i.div.text
-                authorSex = sex
                 authorPng = schema + i.img.attrs['src']
-                authorPage = base_url + i.a.attrs['href']
                 author = Author(authorName, authorAge, authorSex, authorPng, authorPage)
 
             # print(item.span.text)
@@ -203,11 +207,12 @@ def get_page(page):
             # print(item.findAll('span', class_='stats-comments')[0].i.text)  # comment
             # print('=============================')
 
+            # print(item.findAll('span', class_='stats-comments')[0].i.text)
             article = Article(
                 item.span.text,
                 item.findAll('a', class_='contentHerf')[0].attrs['href'],
                 item.findAll('span', class_='stats-vote')[0].i.text,
-                item.findAll('span', class_='stats-comments')[0].i.text,
+                item.findAll('a', class_='qiushi_comments')[0].i.text,
                 author
             )
             lists.append(article)
@@ -229,7 +234,7 @@ def get_page(page):
             print(e)
         return ''
     except AttributeError as e:
-        print('AttributeError')
+        print('AttributeError', e)
         return ''
 
         # article = Article(None, None, None, None, None, None, None, None)
@@ -252,9 +257,9 @@ if __name__ == '__main__':
         print("usage:%s start/stop/restart" % sys.argv[0])
         sys.exit(2)
 
-    # @bottle.route('/qiushi/<page>')
-    # def qiushi(page):
-    #     return get_page(page)
-    #
-    #
-    # bottle.run(host='localhost', port=3333)
+        # @bottle.route('/qiushi/<page>')
+        # def qiushi(page):
+        #     return get_page(page)
+        #
+        #
+        # bottle.run(host='localhost', port=3333)
