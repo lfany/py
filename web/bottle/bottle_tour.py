@@ -23,7 +23,7 @@ def test(param):
 @app.route('/code')
 @app.route('/code/')
 def code():
-    return static_file(root='./', filename='myspider.py')
+    return static_file(root='./', filename=__file__)  # , download=True)
 
 
 @app.get('/login')  # 或 @route('/login')
