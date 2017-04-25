@@ -15,4 +15,9 @@ def file_not_found(error):
     return 'file not found'
 
 
+@app.route('/test/<param>')
+def test(param):
+    return 'test %s' % param
+
+
 run(app=app, host='localhost', port=44, debug=True, reloader=True)
