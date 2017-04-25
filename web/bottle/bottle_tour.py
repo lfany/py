@@ -1,8 +1,18 @@
 #!/usr/bin/env python3
 
-from bottle import route, run
+from bottle import Bottle, run
 
-@route('/')
-def index():
-    return "hello world!"
-run(host='localhost', port=44)
+app = Bottle()
+
+
+@app.route('/hello/<name>')
+def index(name):
+    return 'hello world! {xx} '.format(xx=name)
+
+
+@app.error(code=404)
+def file_not_found(error):
+    return 'file not found'
+
+
+run(app=app, host='localhost', port=44, debug=True, reloader=True)
