@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from bottle import Bottle, run, static_file, request
+from bottle import Bottle, run, static_file, request, redirect
 
 app = Bottle()
 
@@ -11,7 +11,7 @@ def index(name='Stranger'):
 
 
 @app.error(code=404)
-def file_not_found(error):
+def file_not_found(_):
     return 'file not found'
 
 
@@ -21,9 +21,24 @@ def test(param):
 
 
 @app.route('/code')
-@app.route('/code/')
+@app.route('/code/<>')
 def code():
-    return static_file(root='./', filename=__file__)  # , download=True)
+    return static_file(root='.', filename=__file__, download=False, mimetype='text/text')  # , download=True)
+
+
+@app.route('/static/<file_name>')
+def file(file_name):
+    return static_file(filename=file_name, root='.', download=False, mimetype='text/text')
+
+
+# @app.get('/code/')
+# def redirect301():
+#     redirect('/code')
+
+
+@app.route('/<xx>/', method='Get')
+def redirect301(xx):
+    redirect('/%s' % xx)
 
 
 @app.get('/login')  # 或 @route('/login')
