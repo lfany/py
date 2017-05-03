@@ -170,3 +170,5 @@ test*
 *.db
 ## JSON
 *.json
+## HTML
+*.html
