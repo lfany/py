@@ -164,3 +164,7 @@ ENV/
 ## Custom ##
 test*
 *.txt
+## DB
+*.sqlite3
+*.sqlite
+*.db
