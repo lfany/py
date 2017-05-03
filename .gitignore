@@ -168,3 +168,5 @@ test*
 *.sqlite3
 *.sqlite
 *.db
+## JSON
+*.json
