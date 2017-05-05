@@ -8,4 +8,4 @@ class TourspySpider(scrapy.Spider):
     start_urls = ['http://www.baidu.com/']
 
     def parse(self, response):
-        pass
+        self.logger.info("%s received", response.url)
