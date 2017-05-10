@@ -1,3 +1,6 @@
 [submodule "spy/WebHubBot"]
 	path = spy/WebHubBot
 	url = https://github.com/lfany/WebHubBot
+[submodule "spy/fun_crawler"]
+	path = spy/fun_crawler
+	url = https://github.com/lfany/fun_crawler
