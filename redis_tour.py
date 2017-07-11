@@ -2,7 +2,7 @@
 
 import redis
 
-client = redis.StrictRedis(host='192.168.71.236', port=6379, db=3, password='00')
+client = redis.StrictRedis(host='192.168.71.234', port=6379, db=3, password='00')
 
 print(client.ping())
 

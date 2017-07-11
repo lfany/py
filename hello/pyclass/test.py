@@ -6,7 +6,7 @@ from hello.pyclass.emplyee import Emplyee
 
 ee = Emplyee("name", "sal")
 ee.display()
-print(ee._hh)
+print(ee.__hh)
 ee.__func()
 
 

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+
 class Emplyee:
     'hello'
     empCount = 0
@@ -25,6 +26,7 @@ class Emplyee:
 
     def __func(self):
         pass
+
 
 print("Employee.__doc__:", Emplyee.__doc__)
 print("Employee.__name__:", Emplyee.__name__)
