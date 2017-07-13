@@ -34,3 +34,22 @@ def selectdb(request):
         response1 += '<li>' + str(var.id) + '  ' + var.name + '</li>'
     response = response1
     return HttpResponse('<p><ul>' + response + '</ul></p>')
+
+def updatedb(request):
+    test1 = TestModel.objects.get(id=1)
+    test1.name = 'world'
+    test1.save()
+
+    TestModel.objects.filter(id=2).update(name='Google')
+
+    #TestModel.objects.all().update(name='Google')
+
+    return HttpResponse('<p>修改成功; <a href=\'/selectdb\'>点击查看</a></p>')
+
+def deletedb(request):
+    test1 = TestModel.objects.get(id=1)
+    test1.delete()
+
+    TestModel.objects.filter(id=1).delete()
+
+    return HttpResponse('<p>删除成功; <a href=\'/selectdb\'>点击查看</a></p>')
