@@ -18,6 +18,8 @@ from django.contrib import admin
 
 from . import testdb
 from . import view
+from . import search
+from . import search2
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -27,4 +29,7 @@ urlpatterns = [
     url(r'^selectdb$', testdb.selectdb),
     url(r'^updatedb$', testdb.updatedb),
     url(r'^deletedb$', testdb.deletedb),
+    url(r'^search-form$', search.search_form),
+    url(r'^search$', search.search),
+    url(r'^search-post$', search2.search_post),
 ]
