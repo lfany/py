@@ -6,8 +6,13 @@ from .models import TestModel, Contact, Tag
 # Register your models here.
 
 
+class TagInline(admin.TabularInline):
+    model = Tag
+
+
 class ContactAdmin(admin.ModelAdmin):
     # fields = ('name', 'email')
+    inlines = [TagInline] # Inline
     fieldsets = (
         ['Main', {
             'fields': ('name', 'email'),
@@ -19,5 +24,5 @@ class ContactAdmin(admin.ModelAdmin):
     )
 
 
-admin.site.register([TestModel, Tag])
+admin.site.register([TestModel])
 admin.site.register(Contact, ContactAdmin)
