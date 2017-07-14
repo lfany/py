@@ -7,7 +7,16 @@ from .models import TestModel, Contact, Tag
 
 
 class ContactAdmin(admin.ModelAdmin):
-    fields = ('name', 'email')
+    # fields = ('name', 'email')
+    fieldsets = (
+        ['Main', {
+            'fields': ('name', 'email'),
+        }],
+        ['Advance', {
+            'classes': ('collapse',),  # CSS
+            'fields': ('age',),
+        }]
+    )
 
 
 admin.site.register([TestModel, Tag])
