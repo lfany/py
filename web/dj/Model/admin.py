@@ -12,7 +12,7 @@ class TagInline(admin.TabularInline):
 
 class ContactAdmin(admin.ModelAdmin):
     # fields = ('name', 'email')
-    inlines = [TagInline] # Inline
+    inlines = [TagInline]  # Inline
     fieldsets = (
         ['Main', {
             'fields': ('name', 'email'),
