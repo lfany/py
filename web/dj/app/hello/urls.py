@@ -16,10 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 
-from . import testdb
-from . import view
 from . import search
 from . import search2
+from . import testdb
+from . import view
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
