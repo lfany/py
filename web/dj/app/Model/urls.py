@@ -13,24 +13,24 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.conf.urls import url
 from django.contrib import admin
 
-from . import search
-from . import search2
+# from . import search
+# from . import search2
 from . import testdb
-from . import view
+# from . import view
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', view.hello),
-    url(r'^hello$', view.hello),
-    url(r'^insertdb$', testdb.insertdb),
-    url(r'^selectdb$', testdb.selectdb),
-    url(r'^updatedb$', testdb.updatedb),
-    url(r'^deletedb$', testdb.deletedb),
-    url(r'^db/', include('Model.urls')),
-    url(r'^search-form$', search.search_form),
-    url(r'^search$', search.search),
-    url(r'^search-post$', search2.search_post),
+    # url(r'^admin/', admin.site.urls),
+    # url(r'^$', view.hello),
+    # url(r'^hello$', view.hello),
+    url(r'insertdb$', testdb.insertdb),
+    url(r'selectdb$', testdb.selectdb),
+    url(r'updatedb$', testdb.updatedb),
+    url(r'deletedb$', testdb.deletedb),
+    # url(r'db/$', include(Model.urls)),
+    # url(r'^search-form$', search.search_form),
+    # url(r'^search$', search.search),
+    # url(r'^search-post$', search2.search_post),
 ]

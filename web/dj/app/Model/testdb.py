@@ -4,12 +4,8 @@ import sys, os
 
 # from Model.models import TestModel
 # Add the project to the python path
+from .models import TestModel
 
-# sys.path.insert(0, os.path.join(os.path.dirname(__file__), os.pardir))
-
-# from Model.models import TestModel
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), os.pardir))
-from Model.models import TestModel
 
 def insertdb(request):
     model = TestModel(name='hello')
