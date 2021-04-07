@@ -3,7 +3,7 @@ attrs==17.2.0
 Automat==0.6.0
 beautifulsoup4==4.6.0
 blinker==1.4
-bottle==0.12.13
+bottle==0.12.19
 certifi==2017.4.17
 cffi==1.10.0
 chardet==3.0.4
